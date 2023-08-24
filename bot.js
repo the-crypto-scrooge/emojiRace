@@ -1,7 +1,3 @@
-// You moved the startWageredGame into here, but it should really be in the game file for whatever game is calling it
-
-
-
 require('dotenv').config();
 const contractAddress = '0xfD9166E92B788dD6Ff9C7DA2CB0396d0fb746BcB';
 const contractABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Deposited","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"NFTDeposited","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"NFTSent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"token","type":"address"}],"name":"TokenAdded","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"address","name":"token","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"TokenDeposited","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"address","name":"token","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"TokenWithdrawn","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"winner","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"WinnerPaid","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"inputs":[{"internalType":"address","name":"erc721Address","type":"address"}],"name":"addAllowedERC721Address","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"nftAddress","type":"address"}],"name":"addAllowedNFTAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"}],"name":"addAllowedToken","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"allowedERC721Addresses","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"allowedNFTAddresses","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"allowedTokens","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"players","type":"address[]"},{"internalType":"uint256[]","name":"wagers","type":"uint256[]"}],"name":"deductPlayerWagers","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"deposit","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"address","name":"erc721Address","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"depositRewardERC721","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"nftAddress","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"uint256","name":"quantity","type":"uint256"}],"name":"depositRewardNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"depositToken","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"ethBalances","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"getNFTQuantity","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"winner","type":"address"},{"internalType":"uint256","name":"winningsAmount","type":"uint256"},{"internalType":"address[]","name":"players","type":"address[]"},{"internalType":"uint256[]","name":"wagers","type":"uint256[]"},{"internalType":"address","name":"nftRecipient","type":"address"},{"internalType":"uint256","name":"nftTokenId","type":"uint256"},{"internalType":"uint256","name":"nftQuantity","type":"uint256"}],"name":"handleGameResults","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"address","name":"winner","type":"address"},{"internalType":"uint256","name":"winningsAmount","type":"uint256"},{"internalType":"address[]","name":"players","type":"address[]"},{"internalType":"uint256[]","name":"wagers","type":"uint256[]"},{"internalType":"address","name":"nftRecipient","type":"address"},{"internalType":"uint256","name":"nftTokenId","type":"uint256"},{"internalType":"uint256","name":"nftQuantity","type":"uint256"}],"name":"handleGameResultsERC20","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"nftQuantities","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"address","name":"from","type":"address"},{"internalType":"uint256[]","name":"ids","type":"uint256[]"},{"internalType":"uint256[]","name":"values","type":"uint256[]"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"onERC1155BatchReceived","outputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"stateMutability":"pure","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"address","name":"from","type":"address"},{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"value","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"onERC1155Received","outputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"stateMutability":"pure","type":"function"},{"inputs":[{"internalType":"address","name":"operator","type":"address"},{"internalType":"address","name":"from","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"bytes","name":"data","type":"bytes"}],"name":"onERC721Received","outputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"erc721Address","type":"address"}],"name":"removeAllowedERC721Address","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"nftAddress","type":"address"}],"name":"removeAllowedNFTAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"rewardNFTAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"erc721Address","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"sendRewardERC721","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"nftAddress","type":"address"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"uint256","name":"quantity","type":"uint256"}],"name":"sendRewardNFT","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"nftAddress","type":"address"}],"name":"setNFTAddress","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes4","name":"interfaceId","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"tokenBalances","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"token","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"withdrawToken","outputs":[],"stateMutability":"nonpayable","type":"function"}]
@@ -20,13 +16,10 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 const web3 = new Web3.Web3(process.env.MAINNET_INFURA_URL);
 
-
-
 const provider = new ethers.providers.JsonRpcProvider(process.env.MAINNET_INFURA_URL);
 const ethersWallet = new ethers.Wallet('0x' + PRIVATE_KEY).connect(provider);
 const ethersContract = new ethers.Contract(contractAddress, contractABI, ethersWallet);
 console.log(ethersWallet.address);
-
 
 const contract = new web3.eth.Contract(contractABI, contractAddress);
 
@@ -34,96 +27,12 @@ const registerUser = require('./src/register');
 const User = require('./src/user');
 
 // Schemas
-const Game = require('./games/streetsOfMayhem/schemas/games');
-const WageredLobby = require('./games/streetsOfMayhem/schemas/wageredLobbies');
+const Game = require('./emojiRace/schemas/games');
+const Lobby = require('./emojiRace/schemas/lobbies');
+const WageredLobby = require('./emojiRace/schemas/wageredLobbies');
 
 // Controllers
-const { startGame, initializeDistrictsForGame, promptPlayerTurn, claimDistrict, formatMeter, challengeAttack, sabotageAttack, propagandaAttack, fortify, bribe, invest, proposeAlliance, acceptAlliance, declineAlliance, breakAlliance, advanceTurn, getDistrictDetails, showGameMenu, canJoinLobby } = require('./games/streetsOfMayhem/controllers/game');
-const { createLobbyStreetsOfMayhem } = require('./games/streetsOfMayhem/index');
 
-// Include the streetsOfMayhem game
-const streetsOfMayhem = require('./games/streetsOfMayhem');
-
-async function distributeWinningsNew(game, winnerUsername) {
-    const wageredAmountWei = ethers.utils.parseEther(game.wageredLobby.wageredAmount.toString());
-    const totalWagersWei = wageredAmountWei.mul(game.players.length);
-    const winningsAmountWei = totalWagersWei.mul(9).div(10);
-
-    const houseAddress = '0x0FE31BC3cED8a31332d6087408381a1221147a2B'; 
-    const houseAmount = totalWagersWei.sub(winningsAmountWei);
-
-    const winner = await User.findOne({ telegramUsername: winnerUsername });
-    const winnerAddress = winner.ethereumAddress;
-
-    const playersAddresses = await Promise.all(game.players.map(async playerData => {
-        const player = await User.findOne({ telegramUsername: playerData.username });
-        return player.ethereumAddress;
-    }));
-    
-    const wagersWeiArray = new Array(game.players.length).fill(wageredAmountWei.toString());
-
-    // 25% chance for an NFT to be sent out
-    let nftRecipient = '0x0000000000000000000000000000000000000000'; // default no NFT
-    let nftTokenId = game.wageredLobby.nftReward || 0;
-    const nftQuantity = (nftTokenId > 0) ? 1 : 0;
-
-    if (nftTokenId > 0) {
-        // Randomly select a player to receive the NFT
-        const randomIndex = Math.floor(Math.random() * game.players.length);
-        nftRecipient = playersAddresses[randomIndex];
-    }
-
-    try {
-        // Handle winner's winnings
-        const winnerTxResponse = await ethersContract.handleGameResults(
-            winnerAddress,
-            winningsAmountWei.toString(),
-            playersAddresses,
-            wagersWeiArray,
-            nftRecipient == winnerAddress ? nftRecipient : '0x0000000000000000000000000000000000000000',
-            nftTokenId,
-            nftQuantity
-        );
-        console.log('Winner Transaction hash:', winnerTxResponse.hash);
-        
-        const winnerReceipt = await winnerTxResponse.wait();
-        console.log('Winner Transaction was mined in block:', winnerReceipt.blockNumber);
-
-        // Handle NFT distribution if the NFT recipient is different from the game winner
-        // Handle NFT distribution
-        //const rewardNFTAddress = '0x89EdB565D1972a5a42EE152378B382E8d098Df85'; 
-        // if (nftTokenId > 0) {
-        //     const nftTxResponse = await ethersContract.sendRewardNFT(
-        //         rewardNFTAddress,  // Assuming this is the correct NFT address
-        //         nftRecipient,
-        //         nftTokenId,
-        //         nftQuantity
-        //     );
-        //     console.log('NFT Transaction hash:', nftTxResponse.hash);
-            
-        //     const nftReceipt = await nftTxResponse.wait();
-        //     console.log('NFT Transaction was mined in block:', nftReceipt.blockNumber);
-        // }
-        
-        // Handle house's share
-        const houseTxResponse = await ethersContract.handleGameResults(
-            houseAddress,
-            houseAmount.toString(),
-            playersAddresses,
-            wagersWeiArray,
-            '0x0000000000000000000000000000000000000000',  // No NFT for the house
-            0,  // No NFT for the house
-            0   // No NFT for the house
-        );
-        console.log('House Transaction hash:', houseTxResponse.hash);
-
-        const houseReceipt = await houseTxResponse.wait();
-        console.log('House Transaction was mined in block:', houseReceipt.blockNumber);
-
-    } catch (error) {
-        console.error("Error sending transaction:", error);
-    }
-}
 
 async function distributeWinnings(game, winnerUsername) {
     const wageredAmountWei = ethers.utils.parseEther(game.wageredLobby.wageredAmount.toString());
@@ -791,8 +700,7 @@ bot.onText(/\/setupWallet/, async (msg) => {
     handleWalletSetup(chatId, telegramUsername, bot);
 });
 
-// Mayhem Games Bot Welcome Message
-bot.onText(/\/startMayhem/, async (msg) => {
+bot.onText(/\/startRace/, async (msg) => {
     const chatId = msg.chat.id;
     const telegramUsername = msg.from.username;
 
@@ -806,48 +714,7 @@ bot.onText(/\/startMayhem/, async (msg) => {
     showWelcomeMenu(chatId, telegramUsername, bot);
 });
 
-// Streets of Mayhem game commands
 
-bot.onText(/\/streetsOfMayhem/, async (msg) => {
-    console.log('Command received for Streets of Mayhem');
-    const chatId = msg.chat.id;
-    const telegramUsername = msg.from.username;
-    displayStreetsOfMayhemMenu(chatId, telegramUsername, bot);
-});
-
-bot.onText(/\/currentTurn/, async (msg) => {
-    const chatId = msg.chat.id;
-    const userId = msg.from.id;
-    const username = msg.from.username;
-
-    try {
-        // 1. Find a game where this user is a player and the game is in progress.
-        const game = await Game.findOne({ players: { $elemMatch: { username: username } }, state: 'in-progress' });
-
-        // 2. If no game found, send a message and return.
-        if (!game) {
-            bot.sendMessage(chatId, "You're not currently participating in any game or the game has already finished.");
-            return;
-        }
-
-        // 3. Check if it's the user's turn.
-        const currentPlayer = game.players[game.currentPlayerIndex];
-        if (currentPlayer.username !== username) {
-            bot.sendMessage(chatId, `It's not your turn yet. It's currently ${currentPlayer.username}'s turn. Please wait for your turn.`);
-            return;
-        }
-
-        // 4. If a game is found and it's the user's turn, prompt the player's turn using the existing function.
-        promptPlayerTurn(bot, game._id);
-    } catch (error) {
-        console.error("Error fetching current turn:", error);
-        bot.sendMessage(chatId, "An error occurred while fetching the current turn. Please try again later.");
-    }
-});
-
-// End of Streets of Mayhem game commands
-
-// Delegating the control to the streetsOfMayhem game
 bot.on('callback_query', async (callbackQuery) => {
     const data = callbackQuery.data;
     console.log("Callback data:", data);
@@ -1086,40 +953,17 @@ bot.on('callback_query', async (callbackQuery) => {
         });
     } else if (data === 'chose_wager_eth_erc20') {
         bot.sendMessage(chatId, "This option will be available soon...");
-    //     const erc20LobbyOptionsText = `
-    // Select your ERC20 lobby option:
-    // `;
-    
-    //     const erc20LobbyOptions = {
-    //         reply_markup: {
-    //             inline_keyboard: [
-    //                 [{ text: 'Create ERC20 Lobby', callback_data: 'create_erc20_lobby' }],
-    //                 [{ text: 'Join ERC20 Lobby', callback_data: 'join_erc20_lobby' }],
-    //                 [{ text: 'Join ERC20 Random', callback_data: 'join_erc20_random' }],
-    //             ],
-    //         },
-    //         parse_mode: 'Markdown'
-    //     };
-    
-    //     bot.editMessageText(erc20LobbyOptionsText, {
-    //         chat_id: chatId,
-    //         message_id: callbackQuery.message.message_id,
-    //         ...erc20LobbyOptions
-    //     });
     } else if (data.startsWith('join_eth_lobby')) {
         fetchAvailableEthLobbies(chatId);
-    }
-    else if (data.startsWith('select_eth_lobby_')) {
+    } else if (data.startsWith('select_eth_lobby_')) {
         const lobbyId = data.split('_')[3];  // Extract the _id from the callback data
         joinSelectedEthLobby(chatId, telegramUsername, lobbyId);
     } else if (data.startsWith('join_eth_random')) {
         joinRandomEthLobby(chatId, telegramUsername);
-    } 
-    else if (data.startsWith('start_wagered_game_')) {
+    } else if (data.startsWith('start_wagered_game_')) {
         console.log("Start wagered game callback triggered");
         startWageredGame(callbackQuery, bot);
-    }
-      else if (data === 'wager_base') {
+    } else if (data === 'wager_base') {
         bot.sendMessage(chatId,"This option will be set up soon...");
         console.log("This option will be set up soon...");
     } else if (data === 'create_lobby') {
@@ -1134,44 +978,10 @@ bot.on('callback_query', async (callbackQuery) => {
         streetsOfMayhem.handleLeaveLobby(callbackQuery, bot);
     } else if (data === 'leave_wager_lobby') {
         streetsOfMayhem.handleLeaveWageredLobby(callbackQuery, bot);
-    }
-    
-     else if (data.startsWith('start_game_')) {
+    } else if (data.startsWith('start_game_')) {
         streetsOfMayhem.startGameStreetsOfMayhem(callbackQuery, bot);
-    } else if (data.startsWith('prepare_claim_district_')) {
-        result = await streetsOfMayhem.prepareClaimDistrict(callbackQuery, bot);
-    } else if (data.startsWith('select_district_')) {
-        result = await streetsOfMayhem.selectDistrict(callbackQuery, bot);
-    } else if (data.startsWith('attack')) {
-        result = await streetsOfMayhem.handleAttack(callbackQuery, bot);
-    } else if (data.startsWith('action_challenge')) {
-        result = await streetsOfMayhem.handleChallengeAction(callbackQuery, bot);
-    } else if (data.startsWith('challenge_district_')) {
-        result = await streetsOfMayhem.handleChallengeDistrict(callbackQuery, bot);
-    } else if (data.startsWith('action_sabotage')) {
-        result = await streetsOfMayhem.handleSabotageAction(callbackQuery, bot);
-    } else if (data.startsWith('sabotage_player_')) {
-        result = await streetsOfMayhem.handleSabotagePlayer(callbackQuery, bot);
-    } else if (data.startsWith('action_propaganda')) {
-        result = await streetsOfMayhem.handlePropagandaAction(callbackQuery, bot);
-    } if (data.startsWith('defend')) {
-        result = await streetsOfMayhem.handleDefend(callbackQuery, bot);
-    } else if (data.startsWith('skip_turn')) {
-        result = await streetsOfMayhem.handleSkipTurn(callbackQuery, bot);
-    } else if (data.startsWith('action_fortify')) {
-        result = await streetsOfMayhem.handleFortifyAction(callbackQuery, bot);
-    } else if (data.startsWith('fortify_district_')) {
-        result = await streetsOfMayhem.handleFortifyDistrict(callbackQuery, bot);
-    } else if (data.startsWith('action_bribe')) {
-        result = await streetsOfMayhem.handleBribe(callbackQuery, bot);
-    } else if (data.startsWith('action_invest')) {
-        result = await streetsOfMayhem.handleInvest(callbackQuery, bot);
-    } else if (data.startsWith('invest_district_')) {
-        result = await streetsOfMayhem.handleInvestDistrict(callbackQuery, bot);
     } else if (data.startsWith('game_menu')) {
         result = await streetsOfMayhem.handleGameMenu(callbackQuery, bot);
-    } else if (data === 'view_thebiggiver') {
-        bot.sendMessage(chatId, 'If you are interested in having your project integrated with Mayhem Games Bot please contact @thebiggiver ');
     } else if (data === 'setup_wallet') {
         // Send a DM to the user prompting them to set up their wallet
         bot.sendMessage(chatId, "Please DM the bot with the start command to set up your address.");
@@ -1211,8 +1021,3 @@ process.on('unhandledRejection', (reason, p) => {
 });
 
 module.exports.distributeWinnings = distributeWinnings;
-
-      
-
-    
-    
